@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" x-data="{menuIsOpen: false}">
+<html lang="en" x-data="{dd1Open: false, dd2Open: false, dd3Open: false, menuIsOpen: false}"  :class="{noscroll:menuIsOpen,}">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -21,6 +21,9 @@
         position: relative;
         z-index: 10;
       }
+      .noscroll, .noscroll body {
+        overflow: hidden;
+      }
     </style>
   </head>
   <body>
@@ -37,7 +40,20 @@
         </ul>
       </nav>
     
+      <dl>
+        <dt aria-controls="dd1" @click="dd1Open = ! dd1Open">Lorem.</dt>
+        <dd id="dd1" x-show="dd1Open" x-transition.duration.400ms>Lorem ipsum dolor sit amet.</dd>
+      </dl>
+      <dl>
+        <dt aria-controls="dd2" @click="dd2Open = ! dd2Open">Nesciunt.</dt>
+        <dd id="dd2" x-show="dd2Open" x-transition.duration.400ms>Distinctio id natus architecto esse.</dd>
+      </dl>
+      <dl>
+        <dt aria-controls="dd3" @click="dd3Open = ! dd3Open">Ea.</dt>
+        <dd id="dd3" x-show="dd3Open" x-transition.duration.400ms>Cum sint aliquid recusandae mollitia.</dd>
+      </dl>
     </header>
+    
     <!-- h2>lorem2^p>lorem -->
     <h2>Lorem, ipsum.</h2>
     <p>
